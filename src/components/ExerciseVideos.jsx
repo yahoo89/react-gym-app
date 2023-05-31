@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, Box, Stack } from '@mui/material'
 import Loader from './Loader'
+import ExerciseVideosInfo from './ExerciseVideosInfo'
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
   if (!exerciseVideos.length) return <Loader />
@@ -39,17 +40,11 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
                 fontWeight={600}
                 color="#000"
               >
-                {item.video.title}
+                {item.video.title.length > 25
+                  ? item.video.title.substring(0, 25) + '...'
+                  : item.video.title}
               </Typography>
-              <Typography fontSize="14px" color="#000" fontWeight={700}>
-                <span>Channel: {item.video.channelName}</span> <br />
-                <span>views: {item.video.viewCountText}</span>
-                <br />
-                <span>duration: {item.video.lengthText}</span>
-                <br />
-                <span>Published: {item.video.publishedTimeText}</span>
-                <br />
-              </Typography>
+              <ExerciseVideosInfo infoData={item.video} />
             </Box>
           </a>
         ))}

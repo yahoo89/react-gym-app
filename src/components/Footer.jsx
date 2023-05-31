@@ -19,8 +19,9 @@ const Footer = () => (
       mt="41px"
       textAlign="center"
       pb="40px"
+      fontWeight={700}
     >
-      Made with ❤️ by Tigran
+      Made by <span className="colorTitle">Tigran</span>
     </Typography>
   </Box>
 )
